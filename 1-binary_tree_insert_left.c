@@ -30,6 +30,6 @@ binary_tree_t *tmp;
 	node->left = tmp;
 	tmp->parent = node;
 	}
-	
+
 	return (node);
 }
