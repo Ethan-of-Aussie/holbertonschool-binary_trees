@@ -14,8 +14,10 @@ binary_tree_t *tmp;
 	if (!node)
 		return (NULL);
 	if (!parent)
+	{
+		free(node);
 		return (NULL);
-
+	}
 	tmp = parent->left;
 	node->parent = parent;
 	node->left = NULL;
