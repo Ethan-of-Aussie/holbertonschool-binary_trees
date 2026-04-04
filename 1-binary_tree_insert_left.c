@@ -19,6 +19,7 @@ binary_tree_t *tmp;
 	tmp = parent->left;
 	node->parent = parent;
 	node->left = NULL;
+	node->right = NULL;
 	node->n = value;
 	parent->left = node;
 
