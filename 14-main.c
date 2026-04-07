@@ -29,5 +29,6 @@ int main(void)
     printf("Balance of %d: %+d\n", root->right->n, balance);
     balance = binary_tree_balance(root->left->left->right);
     printf("Balance of %d: %+d\n", root->left->left->right->n, balance);
+
     return (0);
 }
