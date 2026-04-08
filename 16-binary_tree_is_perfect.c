@@ -1,19 +1,19 @@
 #include "binary_trees.h"
 /**
- *per_recur - Checks if a binary tree is perfect recursively.
- *@tree: Pointer to the root node of the tree to check.
- *
- *Return: If tree is not perfect, 0. Otherwise, 1.
+ *binary_tree_height - Return the height of the tree
+ *@tree: Pointer to the root of a tree
+ *Return: Height of the tree
  */
-int per_recur(const binary_tree_t *tree)
+size_t binary_tree_height(const binary_tree_t *tree)
 {
-	if (tree != NULL)
-	{
-	if ((tree->left != NULL && !tree->right) ||
-	    (!tree->left && tree->right != NULL))
+	size_t rh;
+	size_t lh;
+
+	if (!tree)
 	return (0);
-	}
-	return (1);
+	lh = tree->left ? 1 + binary_tree_height(tree->left) : 0;
+	rh = tree->right ? 1 + binary_tree_height(tree->right) : 0;
+	return (lh > rh ? lh : rh);
 }
 /**
  *
@@ -23,7 +23,11 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 {
 	if (!tree)
 	return (0);
-
-	return (per_recur(tree));
+	if (tree->left == NULL && tree->right == NULL)
+		return (1);
+	if (binary_tree_height(tree->left) != binary_tree_height(tree->right))
+		return (0);
+	return (binary_tree_is_perfect(tree->left) &&
+			binary_tree_is_perfect(tree->right));
 	
 }
