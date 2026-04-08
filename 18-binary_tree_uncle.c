@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 /**
- *binary_tree_t - Checks the Uncle in tree
+ *binary_tree_uncle - Checks the Uncle in tree
  *@node: Pointer of nodes in the tree
  *Return: NULL if failure, returns the value of uncles on success
  */
